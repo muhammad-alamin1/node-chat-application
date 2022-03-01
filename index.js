@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(applicationMiddleware);
 
 // route setup
-// app.use('/users', userRouter);
-// app.use('/inbox', inboxRouter);
+app.use('/users', userRouter);
+app.use('/inbox', inboxRouter);
 app.use('/', loginRouter);
 
 //  404 not found
