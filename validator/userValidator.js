@@ -1,4 +1,4 @@
-const createError = require('http-error');
+const createError = require('http-errors');
 const path = require('path');
 const { unlink } = require('fs');
 const { check, validationResult } = require('express-validator');

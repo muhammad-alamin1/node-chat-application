@@ -1,6 +1,6 @@
 const multer = require('multer');
 const path = require('path');
-const createError = require('http-error');
+const createError = require('http-errors');
 
 const uploader = (sub_folder, file_type, file_size, error) => {
     const uploader_folder = `${__dirname}/../public/uploads/${sub_folder}/`;
