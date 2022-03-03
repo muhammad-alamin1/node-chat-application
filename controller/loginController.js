@@ -21,7 +21,7 @@ const loginPostController = async(req, res, next) => {
             if (isValidPass) {
                 // generate user object
                 const userObj = {
-                    username: user.username,
+                    username: user.name,
                     email: user.email,
                     role: 'user'
                 };
@@ -62,8 +62,14 @@ const loginPostController = async(req, res, next) => {
     }
 }
 
+// logout 
+const logout = (req, res) => {
+    res.clearCookie(process.env.COOKIE_NAME, { path: '/' });
+    res.send('Logged Out');
+}
 
 module.exports = {
     loginGetController,
-    loginPostController
+    loginPostController,
+    logout
 }

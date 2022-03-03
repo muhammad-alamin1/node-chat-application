@@ -1,6 +1,6 @@
 const loginRouter = require('express').Router({ caseSensitive: true });
 
-const { loginGetController, loginPostController } = require('../controller/loginController');
+const { loginGetController, loginPostController, logout } = require('../controller/loginController');
 const htmlResponse = require('../middleware/common/htmlResponse');
 const { loginValidator, loginValidationHandler } = require('../validator/loginValidator');
 
@@ -15,6 +15,9 @@ loginRouter.post('/',
     loginValidationHandler,
     loginPostController
 );
+
+// logout 
+loginRouter.delete('/', logout);
 
 
 module.exports = loginRouter;
