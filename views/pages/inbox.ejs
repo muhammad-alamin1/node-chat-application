@@ -4,38 +4,48 @@
             <input type="text" placeholder="Search" />
         </div>
         <div id="conversation-list">
-            <div class="conversation active">
-                <img src="./images/user1.png" alt="Muhammad" />
-                <div class="title-text">Muhammad</div>
-                <di class="created-date"> May 6 </di>
-                <div class="conversation-message">This is a message</div>
-            </div>
-            <div class="conversation">
-                <img src="./images/user2.png" alt="Muhammad" />
-                <div class="title-text">Sharin</div>
-                <di class="created-date"> Apr 2 </di>
-                <div class="conversation-message">This is a message</div>
-            </div>
+            <% users.forEach(user => { %>
+                <div class="conversation active">
+                    <% if(user.avatar) { %>
+                        <img src="./uploads/avatars/<%= user.avatar %>" alt="<%= user.name %>" />
+                        <% }else { %>
+                            <img src="./images/nophoto.png" alt="no photo" />
+                            <% } %>
+
+                                <div class="title-text">
+                                    <%= user.name %>
+                                </div>
+                                <di class="created-date">
+                                    <%= user.last_updated.getHours() %>:
+                                        <%= user.last_updated.getMinutes() %> |
+                                            <%= user.last_updated.getDate() %>/
+                                                <%= user.last_updated.getMonth() %>/
+                                                    <%= user.last_updated.getFullYear() %>
+                                </di>
+                                <div class="conversation-message"> </div>
+                </div>
+                <% }); %>
+
         </div>
         <div id="new-message-container">
             <a href="#">+</a>
         </div>
         <div id="chat-title">
-            <span>Sharin</span>
+            <span>Sneha</span>
             <img src="./images/trash.png" alt="Delete Conversation" />
         </div>
         <div id="chat-message-list">
             <div class="message-row other-message">
                 <div class="message-content">
-                    <img src="./images/user1.png" alt="Muhammad" />
+                    <!-- <img src="./images/user1.png" alt="Muhammad" />
                     <div class="message-text">Ok then</div>
-                    <div class="message-time">Apr 16</div>
+                    <div class="message-time">Apr 16</div> -->
                 </div>
             </div>
             <div class="message-row you-message">
                 <div class="message-content">
-                    <div class="message-text">Lorem ipsum dolor sit amet</div>
-                    <div class="message-time">Apr 16</div>
+                    <!-- <div class="message-text">Lorem ipsum dolor sit amet</div>
+                    <div class="message-time">Apr 16</div> -->
                 </div>
             </div>
         </div>
@@ -45,7 +55,7 @@
         </div>
     </div>
 
-    <div class="modal-wrapper">
+    <!-- <div class="modal-wrapper">
         <div class="modal">
             <a href="#" class="modal-close">+</a>
             <div class="modal-title">
@@ -59,7 +69,8 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
+
     </body>
 
     </html>
